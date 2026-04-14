@@ -8,6 +8,14 @@ Practical examples of using the **Multi-Agent Development Ecosystem (MADE)** fra
 2. Copy the `python -m src.pipeline "..."` command and adapt it to your codebase.
 3. Follow the step-by-step to understand what each agent does and how to verify the result.
 
+## Token efficiency — OpenWolf
+
+All use cases in this framework automatically benefit from [OpenWolf](https://openwolf.com), which runs invisibly as Claude Code middleware. It maintains a file index (`anatomy.md`) so agents skip redundant reads, and a learned-preference memory (`cerebrum.md`) so corrections are never repeated across sessions. Install it once and it works across every pipeline run:
+
+```bash
+npm install -g openwolf && openwolf init
+```
+
 ---
 
 ## Dev / Engineering

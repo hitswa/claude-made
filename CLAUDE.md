@@ -24,8 +24,36 @@ A learning project implementing a multi-agent AI development system using the Cl
 .claude/skills/     # Progressive-disclosure skill files (SKILL.md per skill)
 .claude/commands/   # Slash command definitions
 .claude/memory/     # Persistent cross-session context
+.wolf/              # OpenWolf token optimization layer (anatomy.md, cerebrum.md, hooks/)
 handoff/            # Plain-text Markdown files for inter-agent communication
 scripts/            # Deterministic shell/Python scripts (linting, git, CI)
+```
+
+## Token Optimization — OpenWolf
+
+This project uses [OpenWolf](https://openwolf.com) to minimize token consumption across all agent sessions. OpenWolf runs as invisible middleware via Claude Code hooks — no manual steps are needed during normal use.
+
+**What it maintains in `.wolf/`:**
+
+| File | Purpose |
+|---|---|
+| `anatomy.md` | File index with token estimates — agents consult this before reading files to skip unnecessary full reads |
+| `cerebrum.md` | Learned preferences, Do-Not-Repeat patterns, and enforced conventions across sessions |
+| `memory.md` | Chronological action log per session |
+| `buglog.json` | Searchable record of bug encounters and resolutions |
+
+**Hook responsibilities:**
+- `PreToolUse / pre-read.js` — warns on repeated reads, shows file summary from anatomy.md instead
+- `PreToolUse / pre-write.js` — checks cerebrum.md for known patterns before any write
+- `PostToolUse / post-read.js` — records token estimate for the file just read
+- `PostToolUse / post-write.js` — updates anatomy.md file index after writes
+- `SessionStart / session-start.js` — loads session context from memory
+- `Stop / stop.js` — writes session summary to token ledger
+
+**Setup (run once):**
+```bash
+npm install -g openwolf
+openwolf init
 ```
 
 ## Core Protocols

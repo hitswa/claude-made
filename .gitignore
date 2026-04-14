@@ -20,5 +20,10 @@ build/
 # Runtime / pipeline artifacts
 handoff/archive/
 
+# OpenWolf — session logs are ephemeral; anatomy.md and cerebrum.md are committed as project intelligence
+.wolf/memory.md
+.wolf/hooks/node_modules/
+.wolf/.cache/
+
 # VS Code
 .vscode/settings.json
