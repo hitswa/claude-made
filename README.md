@@ -1,4 +1,4 @@
-# Multi-Agent Development Ecosystem (MADE)
+# CLAUDE: Multi-Agent Development Ecosystem (CLAUDE-MADE)
 
 Implements the Claude **Orchestrator-Worker** pattern: Architect → Builder → Reviewer, with a hard 2-loop revision cap. Token consumption is automatically minimized via the built-in [OpenWolf](https://openwolf.com) middleware layer — no configuration needed.
 
