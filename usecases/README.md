@@ -10,11 +10,7 @@ Practical examples of using the **Multi-Agent Development Ecosystem (MADE)** fra
 
 ## Token efficiency — OpenWolf
 
-All use cases in this framework automatically benefit from [OpenWolf](https://openwolf.com), which runs invisibly as Claude Code middleware. It maintains a file index (`anatomy.md`) so agents skip redundant reads, and a learned-preference memory (`cerebrum.md`) so corrections are never repeated across sessions. Install it once and it works across every pipeline run:
-
-```bash
-npm install -g openwolf && openwolf init
-```
+All use cases in this framework automatically benefit from [OpenWolf](https://openwolf.com), which runs invisibly as Claude Code middleware. It maintains a file index (`anatomy.md`) so agents skip redundant reads, and a learned-preference memory (`cerebrum.md`) so corrections are never repeated across sessions.
 
 ---
 
